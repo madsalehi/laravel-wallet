@@ -19,10 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::prefix('transaction')->group(function(){
-    Route::post('/deposit', [TransactionController::class, 'deposit']);
-    Route::post('/withdraw', [TransactionController::class, 'withdraw']);
-});
 Route::prefix('wallet')->group(function () {
     Route::get('/balance', [WalletController::class, 'getWalletBalance']);
     Route::get('/transactions', [WalletController::class, 'getTransactions']);
